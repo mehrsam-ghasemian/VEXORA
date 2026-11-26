@@ -1,173 +1,181 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080D1B">
-<meta name="description" content="VEXORA — Explore beyond limits. Discover knowledge, technology and new possibilities.">
+<meta name="description" content="VEXORA - Discover knowledge, explore technology and find what matters.">
+<meta name="keywords" content="VEXORA, search, knowledge, technology, discovery">
 <title>VEXORA — Explore Beyond Limits</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg: #080D1B;
-  --surface: #101A2D;
-  --surface2: #14223A;
-  --blue: #438CFF;
-  --cyan: #43D9FF;
-  --white: #F4F7FF;
-  --muted: #9AAAC5;
-  --border: rgba(150,180,230,.13);
+  --bg:#080D1B;
+  --surface:#101A2D;
+  --surface2:#14223A;
+  --blue:#438CFF;
+  --cyan:#43D9FF;
+  --white:#F4F7FF;
+  --muted:#9AAAC5;
+  --border:rgba(150,180,230,.14);
+  --green:#47D7A0;
 }
 
-* { box-sizing:border-box; margin:0; padding:0; }
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 html { scroll-behavior:smooth; }
 
 body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,Arial,sans-serif;
   min-height:100vh;
+  color:var(--white);
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(37,100,210,.17),transparent 45%),
+    var(--bg);
+  font-family:'Vazirmatn',Inter,sans-serif;
   overflow-x:hidden;
 }
 
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  background:
-    radial-gradient(ellipse at 50% 15%,rgba(36,105,220,.17),transparent 48%),
-    radial-gradient(ellipse at 90% 65%,rgba(28,190,255,.07),transparent 40%);
-}
-
-a { color:inherit; text-decoration:none; }
-
 button,input { font:inherit; }
-
 button { cursor:pointer; }
+a { text-decoration:none; color:inherit; }
+
+.container {
+  width:min(1120px,92%);
+  margin:auto;
+}
 
 /* NAVIGATION */
 
 .navbar {
-  height:78px;
-  max-width:1250px;
-  margin:auto;
-  padding:0 28px;
+  height:76px;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,13,27,.78);
+  backdrop-filter:blur(18px);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.nav-inner {
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid var(--border);
 }
 
 .logo {
   display:flex;
   align-items:center;
   gap:11px;
+  font-family:Inter,sans-serif;
   font-size:25px;
   font-weight:900;
   letter-spacing:2px;
 }
 
-.logo-symbol {
-  width:37px;
-  height:37px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#3D83FF,#40D8FF);
+.logo-icon {
+  width:39px;
+  height:39px;
   display:grid;
   place-items:center;
+  border-radius:12px;
+  background:linear-gradient(135deg,#3984FF,#43D9FF);
+  box-shadow:0 0 24px #348aff55;
+  font-size:25px;
   color:white;
-  font-size:23px;
-  box-shadow:0 0 24px rgba(65,140,255,.35);
 }
 
-.logo span { color:#64C9FF; }
+.logo span { color:#62C8FF; }
 
-.nav-links {
+.nav-right {
   display:flex;
   align-items:center;
-  gap:32px;
+  gap:12px;
 }
 
-.nav-links a {
+.nav-link {
   color:var(--muted);
   font-size:13px;
-  transition:.25s;
+  padding:10px;
+  transition:.2s;
 }
 
-.nav-links a:hover { color:white; }
+.nav-link:hover { color:white; }
 
-.nav-actions {
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.language {
+.lang-btn {
   border:1px solid var(--border);
   background:var(--surface);
   color:white;
-  padding:10px 14px;
-  border-radius:10px;
+  border-radius:11px;
+  padding:10px 16px;
   font-size:12px;
+  transition:.2s;
 }
+
+.lang-btn:hover { border-color:var(--blue); }
 
 /* HERO */
 
 .hero {
-  min-height:650px;
-  padding:105px 20px 65px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
   text-align:center;
+  padding:105px 15px 90px;
+  min-height:630px;
 }
 
-.announcement {
-  padding:9px 16px;
-  border:1px solid rgba(70,155,255,.25);
-  border-radius:30px;
-  background:rgba(42,115,220,.09);
-  color:#8FCBFF;
-  font-size:11px;
-  letter-spacing:1.5px;
-  margin-bottom:29px;
+.pill {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #438cff55;
+  background:#438cff12;
+  color:#91C7FF;
+  padding:9px 18px;
+  border-radius:40px;
+  font-family:Inter,sans-serif;
+  font-size:10px;
+  letter-spacing:2px;
 }
 
 .hero h1 {
-  font-size:clamp(48px,9vw,92px);
-  line-height:1.08;
-  letter-spacing:-4px;
+  font-family:Inter,sans-serif;
+  font-size:clamp(55px,10vw,105px);
   font-weight:900;
-  background:linear-gradient(100deg,#FFFFFF 20%,#7BBEFF 58%,#43D9FF 90%);
+  letter-spacing:-5px;
+  margin-top:32px;
+  line-height:1.2;
+  background:linear-gradient(100deg,#fff 15%,#80BAFF 55%,#43D9FF 90%);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
 
 .hero h2 {
-  font-size:clamp(18px,3vw,26px);
-  margin-top:20px;
-  font-weight:500;
-  color:#C2D2EB;
+  font-size:clamp(20px,3vw,28px);
+  font-weight:600;
+  margin-top:16px;
+  color:#D2E1F8;
 }
 
-.hero-description {
-  max-width:590px;
+.hero-desc {
+  max-width:620px;
+  margin:18px auto 0;
   color:var(--muted);
   font-size:14px;
-  line-height:2;
-  margin-top:17px;
+  line-height:2.2;
 }
 
 /* SEARCH */
 
 .search-area {
-  width:min(690px,94%);
-  margin-top:43px;
+  width:min(720px,100%);
+  margin:43px auto 0;
 }
 
 .search-box {
@@ -175,60 +183,61 @@ button { cursor:pointer; }
   align-items:center;
   gap:12px;
   padding:9px;
-  border:1px solid rgba(105,165,255,.3);
-  border-radius:17px;
-  background:rgba(16,28,49,.92);
-  box-shadow:0 0 45px rgba(48,125,255,.12);
-  transition:.3s;
+  background:#101B30;
+  border:1px solid #438cff55;
+  border-radius:19px;
+  box-shadow:0 10px 55px #287cff17;
+  transition:.25s;
 }
 
 .search-box:focus-within {
-  border-color:#55A5FF;
-  box-shadow:0 0 45px rgba(48,125,255,.22);
+  border-color:#52B3FF;
+  box-shadow:0 0 35px #287cff30;
 }
 
-.search-icon {
-  padding-left:10px;
-  color:#8CBFFF;
-  font-size:21px;
+.search-symbol {
+  color:#85BCFF;
+  font-size:23px;
+  padding:0 8px;
 }
 
 .search-box input {
   flex:1;
   min-width:0;
   background:transparent;
-  border:0;
-  outline:0;
   color:white;
+  border:none;
+  outline:none;
   font-size:14px;
+  text-align:start;
   padding:13px 0;
 }
 
-.search-box input::placeholder { color:#7185A5; }
+.search-box input::placeholder { color:#788BAA; }
 
-.search-button {
-  border:0;
+.search-submit {
+  border:none;
+  border-radius:12px;
   color:white;
-  background:linear-gradient(120deg,#397FFF,#26BCEB);
-  border-radius:11px;
+  background:linear-gradient(110deg,#397EFF,#24BFE9);
   padding:14px 23px;
-  font-weight:700;
   font-size:13px;
-  transition:.25s;
+  font-weight:800;
+  transition:.2s;
 }
 
-.search-button:hover {
+.search-submit:hover {
   transform:translateY(-2px);
-  box-shadow:0 5px 25px rgba(47,140,255,.35);
+  box-shadow:0 7px 24px #318bff55;
 }
 
-.search-note {
-  color:#7285A5;
+.search-caption {
+  color:#778AA9;
   font-size:11px;
-  margin-top:15px;
+  margin-top:17px;
 }
 
-.quick-links {
+.suggestions {
   display:flex;
   justify-content:center;
   gap:10px;
@@ -236,52 +245,168 @@ button { cursor:pointer; }
   margin-top:24px;
 }
 
-.quick-links button {
-  color:#AABAD4;
-  background:rgba(22,38,64,.7);
+.suggestions button {
+  background:#14223A;
   border:1px solid var(--border);
-  padding:9px 14px;
   border-radius:30px;
+  color:#B5C7E2;
+  padding:9px 16px;
   font-size:11px;
   transition:.2s;
 }
 
-.quick-links button:hover {
+.suggestions button:hover {
+  background:#20395E;
+  border-color:#438CFF;
   color:white;
-  border-color:#468FFF;
-  background:#162A4A;
 }
 
-/* SECTIONS */
+/* SEARCH RESULTS */
+
+.results-section {
+  display:none;
+  padding:15px 0 85px;
+  animation:appear .4s ease;
+}
+
+.results-section.visible { display:block; }
+
+@keyframes appear {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.results-top {
+  border-bottom:1px solid var(--border);
+  padding:20px 0;
+  margin-bottom:22px;
+}
+
+.results-title {
+  font-size:22px;
+  font-weight:800;
+}
+
+.results-query {
+  color:#7DBDFF;
+}
+
+.results-subtitle {
+  color:var(--muted);
+  font-size:12px;
+  margin-top:8px;
+}
+
+.result-tabs {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+
+.result-tab {
+  padding:9px 17px;
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--muted);
+  border:1px solid var(--border);
+  font-size:12px;
+}
+
+.result-tab.active {
+  background:#1B3B68;
+  color:white;
+  border-color:#438CFF;
+}
+
+.results-list {
+  max-width:790px;
+}
+
+.result-card {
+  padding:20px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.result-source {
+  color:#8EB5DD;
+  font-family:Inter,sans-serif;
+  font-size:11px;
+  margin-bottom:8px;
+  direction:ltr;
+  text-align:right;
+}
+
+.result-card h3 {
+  color:#7FB8FF;
+  font-size:18px;
+  margin-bottom:8px;
+  line-height:1.8;
+}
+
+.result-card h3 a:hover { text-decoration:underline; }
+
+.result-card p {
+  color:#A7B7D0;
+  font-size:13px;
+  line-height:2.1;
+}
+
+.result-card a.open-link {
+  display:inline-block;
+  margin-top:12px;
+  font-size:11px;
+  color:#5DC9FF;
+}
+
+.state-box {
+  text-align:center;
+  padding:55px 15px;
+  color:var(--muted);
+  line-height:2;
+}
+
+.loader {
+  width:34px;
+  height:34px;
+  border:3px solid #243B60;
+  border-top-color:#48BFFF;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin:0 auto 18px;
+}
+
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* DISCOVER */
 
 .section {
-  max-width:1150px;
-  padding:70px 25px;
-  margin:auto;
+  padding:75px 0;
 }
 
-.section-heading {
+.section-head {
   text-align:center;
   margin-bottom:38px;
 }
 
-.section-heading .eyebrow {
-  color:#61B9FF;
-  font-size:11px;
+.eyebrow {
+  color:#63B9FF;
+  font-family:Inter,sans-serif;
+  font-size:10px;
   letter-spacing:3px;
-  font-weight:700;
+  font-weight:800;
 }
 
-.section-heading h2 {
-  font-size:30px;
+.section-head h2 {
+  font-size:29px;
   margin-top:13px;
 }
 
-.section-heading p {
+.section-head p {
   color:var(--muted);
   font-size:13px;
   margin-top:12px;
-  line-height:1.8;
+  line-height:2;
 }
 
 .grid {
@@ -291,169 +416,165 @@ button { cursor:pointer; }
 }
 
 .card {
-  position:relative;
-  overflow:hidden;
-  padding:27px;
   min-height:205px;
+  position:relative;
+  padding:25px;
   border:1px solid var(--border);
   border-radius:17px;
-  background:linear-gradient(145deg,rgba(21,38,65,.85),rgba(12,22,39,.9));
-  transition:.3s;
+  background:linear-gradient(145deg,#152440,#0D1729);
+  transition:.25s;
 }
 
 .card:hover {
-  transform:translateY(-6px);
-  border-color:rgba(79,165,255,.5);
-  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  transform:translateY(-5px);
+  border-color:#438CFF88;
+  box-shadow:0 14px 35px #0003;
 }
 
 .card-icon {
-  width:48px;
-  height:48px;
-  border-radius:14px;
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  background:#438cff19;
+  border:1px solid #438cff35;
   display:grid;
   place-items:center;
-  font-size:22px;
-  background:rgba(60,137,255,.13);
-  border:1px solid rgba(70,150,255,.2);
+  font-size:21px;
 }
 
-.card h3 {
-  font-size:17px;
-  margin-top:21px;
-}
+.card h3 { margin-top:19px; font-size:16px; }
 
 .card p {
-  font-size:12px;
-  line-height:1.9;
+  margin-top:9px;
   color:var(--muted);
-  margin-top:10px;
+  font-size:12px;
+  line-height:2;
 }
 
 .card-arrow {
   position:absolute;
-  right:24px;
-  bottom:23px;
-  color:#66B8FF;
-  font-size:19px;
+  bottom:22px;
+  left:22px;
+  color:#70B9FF;
+  font-size:18px;
 }
 
-/* FEATURE */
+/* VISION */
 
-.feature {
-  max-width:1100px;
-  margin:15px auto 85px;
-  padding:55px 30px;
-  border:1px solid rgba(80,155,255,.2);
-  border-radius:23px;
-  background:
-    radial-gradient(ellipse at 85% 50%,rgba(40,120,255,.18),transparent 48%),
-    linear-gradient(120deg,#111E35,#101A2C);
+.vision {
   text-align:center;
+  margin:40px auto 80px;
+  padding:52px 25px;
+  border-radius:22px;
+  border:1px solid #438cff33;
+  background:
+    radial-gradient(ellipse at 50% 100%,#1a4d8833,transparent 65%),
+    #101B30;
 }
 
-.feature h2 { font-size:29px; }
+.vision h2 { font-size:27px; }
 
-.feature p {
+.vision p {
+  max-width:590px;
   color:var(--muted);
   font-size:13px;
-  line-height:2;
-  max-width:600px;
-  margin:16px auto 24px;
-}
-
-.feature-label {
-  color:#69C9FF;
-  letter-spacing:3px;
-  font-size:10px;
-  font-weight:700;
-  margin-bottom:16px;
+  line-height:2.2;
+  margin:17px auto 0;
 }
 
 /* FOOTER */
 
 footer {
   border-top:1px solid var(--border);
-  padding:35px 20px;
+  padding:38px 15px;
   text-align:center;
 }
 
-footer .footer-logo {
-  font-size:21px;
+.footer-brand {
+  font-family:Inter,sans-serif;
   font-weight:900;
-  letter-spacing:2px;
+  letter-spacing:3px;
+  font-size:23px;
 }
 
 footer p {
-  color:#7185A5;
+  color:#7589A8;
   font-size:11px;
-  margin-top:12px;
   line-height:2;
+  margin-top:13px;
 }
 
 .footer-links {
   display:flex;
   justify-content:center;
-  gap:22px;
-  margin-top:17px;
   flex-wrap:wrap;
+  gap:22px;
+  margin-top:19px;
 }
 
 .footer-links a {
-  color:#9AADC9;
+  color:#A5B8D2;
   font-size:11px;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:800px) {
-  .nav-links { display:none; }
+  .nav-link { display:none; }
   .grid { grid-template-columns:repeat(2,1fr); }
-  .hero { padding-top:85px; }
 }
 
-@media(max-width:520px) {
-  .navbar { padding:0 17px; height:68px; }
-  .logo { font-size:20px; }
-  .logo-symbol { width:32px; height:32px; }
-  .hero { min-height:570px; padding:83px 14px 45px; }
-  .hero h1 { letter-spacing:-2px; }
-  .hero-description { font-size:12px; }
-  .search-box { gap:7px; }
-  .search-icon { padding-left:5px; }
+@media(max-width:540px) {
+  .navbar { height:68px; }
+  .logo { font-size:21px; }
+  .logo-icon { width:34px;height:34px; }
+  .hero { padding:80px 10px 65px; }
+  .hero h1 { letter-spacing:-3px; }
+  .hero-desc { font-size:12px; }
+  .search-box { gap:6px; }
+  .search-submit { padding:13px 12px; font-size:11px; }
   .search-box input { font-size:12px; }
-  .search-button { padding:13px 13px; font-size:11px; }
-  .section { padding:50px 17px; }
+  .search-symbol { padding:0 4px; }
   .grid { grid-template-columns:1fr; }
-  .section-heading h2 { font-size:25px; }
-  .feature { margin:10px 15px 60px; padding:40px 20px; }
+  .section { padding:55px 0; }
+  .section-head h2 { font-size:24px; }
+  .vision { padding:38px 18px; margin-bottom:55px; }
+  .results-title { font-size:19px; }
+  .result-card h3 { font-size:16px; }
 }
 
-body[dir="rtl"] { font-family:Tahoma,Arial,sans-serif; }
-body[dir="rtl"] .card-arrow { right:auto; left:24px; }
-body[dir="rtl"] .search-icon { padding-left:0; padding-right:10px; }
-body[dir="rtl"] .search-box input { text-align:right; }
-body[dir="rtl"] .search-icon { padding-right:5px; }
+/* ENGLISH MODE */
+
+body.english {
+  font-family:Inter,sans-serif;
+  direction:ltr;
+}
+
+body.english .search-box input { text-align:left; }
+body.english .card-arrow { left:auto; right:22px; }
+body.english .result-source { text-align:left; }
+body.english .result-card { direction:ltr; text-align:left; }
+
 </style>
 </head>
 
 <body>
 
 <header class="navbar">
-  <a href="#" class="logo">
-    <div class="logo-symbol">V</div>
-    VEXORA
-  </a>
+  <div class="container nav-inner">
 
-  <nav class="nav-links">
-    <a href="#home" data-en="Home" data-fa="خانه">Home</a>
-    <a href="#explore" data-en="Explore" data-fa="اکتشاف">Explore</a>
-    <a href="#services" data-en="Services" data-fa="خدمات">Services</a>
-    <a href="#about" data-en="About" data-fa="درباره ما">About</a>
-  </nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">V</div>
+      VEXORA
+    </a>
 
-  <div class="nav-actions">
-    <button class="language" id="languageBtn">FA / EN</button>
+    <div class="nav-right">
+      <a href="#home" class="nav-link" data-t="home">خانه</a>
+      <a href="#explore" class="nav-link" data-t="explore">اکتشاف</a>
+      <a href="#about" class="nav-link" data-t="about">درباره ما</a>
+      <button class="lang-btn" id="languageBtn">FA / EN</button>
+    </div>
+
   </div>
 </header>
 
@@ -461,62 +582,84 @@ body[dir="rtl"] .search-icon { padding-right:5px; }
 
 <section class="hero" id="home">
 
-  <div class="announcement" data-en="✦ A NEW DIGITAL EXPERIENCE" data-fa="✦ تجربه‌ای جدید از دنیای دیجیتال">
-    ✦ A NEW DIGITAL EXPERIENCE
+  <div class="pill" data-t="announcement">
+    ✦ تجربه‌ای جدید از دنیای دیجیتال
   </div>
 
   <h1>VEXORA</h1>
 
-  <h2 data-en="Explore Beyond Limits." data-fa="فراتر از مرزها کشف کن.">
-    Explore Beyond Limits.
-  </h2>
+  <h2 data-t="slogan">فراتر از مرزها کشف کن.</h2>
 
-  <p class="hero-description"
-     data-en="Discover knowledge, explore the digital world and unlock new possibilities. Your journey starts here."
-     data-fa="دانش را کشف کن، در دنیای دیجیتال کاوش کن و فرصت‌های تازه‌ای بساز. سفر تو از اینجا آغاز می‌شود.">
-    Discover knowledge, explore the digital world and unlock new possibilities. Your journey starts here.
+  <p class="hero-desc" data-t="description">
+    دانش را کشف کن، در دنیای دیجیتال کاوش کن و فرصت‌های تازه‌ای بساز.
+    سفر تو از اینجا آغاز می‌شود.
   </p>
 
   <div class="search-area">
+
     <form class="search-box" id="searchForm">
-      <span class="search-icon">⌕</span>
+
+      <span class="search-symbol">⌕</span>
+
       <input
-        type="search"
         id="searchInput"
-        placeholder="Search the web..."
+        type="search"
+        placeholder="چه چیزی را جست‌وجو می‌کنی؟"
         autocomplete="off"
         required
       >
-      <button class="search-button" type="submit"
-              data-en="Search ↗" data-fa="جست‌وجو ↗">
-        Search ↗
+
+      <button class="search-submit" type="submit" data-t="search">
+        جست‌وجو ↗
       </button>
+
     </form>
 
-    <p class="search-note"
-       data-en="Start exploring the world of information."
-       data-fa="جست‌وجوی خود را در دنیای اطلاعات آغاز کن.">
-      Start exploring the world of information.
+    <p class="search-caption" data-t="searchCaption">
+      پرسش خود را بنویس و دنیای اطلاعات را کشف کن.
     </p>
 
-    <div class="quick-links">
-      <button onclick="quickSearch('Technology')">Technology</button>
-      <button onclick="quickSearch('Science')">Science</button>
-      <button onclick="quickSearch('Education')">Education</button>
-      <button onclick="quickSearch('Artificial Intelligence')">AI</button>
+    <div class="suggestions">
+      <button type="button" onclick="quickSearch('هوش مصنوعی')" data-t="topicAI">هوش مصنوعی</button>
+      <button type="button" onclick="quickSearch('دانشمندان')" data-t="topicScience">دانشمندان</button>
+      <button type="button" onclick="quickSearch('فناوری')" data-t="topicTech">فناوری</button>
+      <button type="button" onclick="quickSearch('فضا')" data-t="topicSpace">فضا</button>
     </div>
+
   </div>
 
 </section>
 
-<section class="section" id="explore">
+<section class="results-section container" id="resultsSection">
 
-  <div class="section-heading">
+  <div class="results-top">
+    <div class="results-title">
+      <span data-t="resultsFor">نتایج جست‌وجو برای:</span>
+      <span class="results-query" id="queryLabel"></span>
+    </div>
+    <p class="results-subtitle" id="resultsSubtitle"></p>
+  </div>
+
+  <div class="result-tabs">
+    <button class="result-tab active" id="knowledgeTab" data-t="knowledgeTab">
+      دانشنامه
+    </button>
+    <button class="result-tab" id="webTab" data-t="webTab">
+      جست‌وجوی وب
+    </button>
+  </div>
+
+  <div class="results-list" id="resultsList"></div>
+
+</section>
+
+<section class="section container" id="explore">
+
+  <div class="section-head">
     <div class="eyebrow">DISCOVER MORE</div>
-    <h2 data-en="Explore the Possibilities" data-fa="فراتر از دنیای معمولی">Explore the Possibilities</h2>
-    <p data-en="A universe of knowledge and innovation, waiting for you."
-       data-fa="جهانی از دانش و نوآوری در انتظار توست.">
-      A universe of knowledge and innovation, waiting for you.
+    <h2 data-t="exploreTitle">جهانی از امکانات را کشف کن</h2>
+    <p data-t="exploreDesc">
+      یادگیری، فناوری، علم و اطلاعات؛ همه در یک نقطه.
     </p>
   </div>
 
@@ -524,149 +667,396 @@ body[dir="rtl"] .search-icon { padding-right:5px; }
 
     <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener">
       <div class="card-icon">🌐</div>
-      <h3 data-en="Knowledge" data-fa="دانش و اطلاعات">Knowledge</h3>
-      <p data-en="Discover facts, ideas and information from around the world."
-         data-fa="واقعیت‌ها، ایده‌ها و اطلاعات جهان را کشف کن.">
-        Discover facts, ideas and information from around the world.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="knowledge">دانش و اطلاعات</h3>
+      <p data-t="knowledgeDesc">اطلاعات و موضوعات مختلف جهان را کشف کن.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
     <a class="card" href="https://www.coursera.org/" target="_blank" rel="noopener">
       <div class="card-icon">🎓</div>
-      <h3 data-en="Learning" data-fa="یادگیری">Learning</h3>
-      <p data-en="Build new skills and expand your knowledge every day."
-         data-fa="مهارت‌های تازه یاد بگیر و دانش خود را گسترش بده.">
-        Build new skills and expand your knowledge every day.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="learning">یادگیری</h3>
+      <p data-t="learningDesc">مهارت‌های تازه یاد بگیر و پیشرفت کن.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
     <a class="card" href="https://github.com/" target="_blank" rel="noopener">
       <div class="card-icon">💻</div>
-      <h3 data-en="Technology" data-fa="فناوری">Technology</h3>
-      <p data-en="Explore programming, innovation and digital technologies."
-         data-fa="برنامه‌نویسی، نوآوری و فناوری‌های دیجیتال را کشف کن.">
-        Explore programming, innovation and digital technologies.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="technology">فناوری</h3>
+      <p data-t="technologyDesc">با برنامه‌نویسی و فناوری آشنا شو.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
     <a class="card" href="https://www.nasa.gov/" target="_blank" rel="noopener">
       <div class="card-icon">🚀</div>
-      <h3 data-en="Science & Space" data-fa="علم و فضا">Science & Space</h3>
-      <p data-en="Explore the universe and the amazing world of science."
-         data-fa="جهان هستی و دنیای شگفت‌انگیز علم را بشناس.">
-        Explore the universe and the amazing world of science.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="science">علم و فضا</h3>
+      <p data-t="scienceDesc">از جهان هستی و شگفتی‌های علم بدان.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
     <a class="card" href="https://developer.mozilla.org/" target="_blank" rel="noopener">
       <div class="card-icon">⚡</div>
-      <h3 data-en="Developer Tools" data-fa="ابزارهای برنامه‌نویسی">Developer Tools</h3>
-      <p data-en="Find useful resources to create and build new things."
-         data-fa="منابع مفید برای ساخت و خلق چیزهای جدید پیدا کن.">
-        Find useful resources to create and build new things.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="developer">ابزارهای برنامه‌نویسی</h3>
+      <p data-t="developerDesc">منابعی برای ساخت پروژه‌های جدید پیدا کن.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
     <a class="card" href="https://www.nationalgeographic.com/" target="_blank" rel="noopener">
       <div class="card-icon">🌍</div>
-      <h3 data-en="Discover the World" data-fa="کشف جهان">Discover the World</h3>
-      <p data-en="Explore nature, cultures and fascinating places."
-         data-fa="طبیعت، فرهنگ‌ها و مکان‌های شگفت‌انگیز را بشناس.">
-        Explore nature, cultures and fascinating places.
-      </p>
-      <span class="card-arrow">↗</span>
+      <h3 data-t="world">کشف جهان</h3>
+      <p data-t="worldDesc">طبیعت، فرهنگ‌ها و مکان‌های شگفت‌انگیز را بشناس.</p>
+      <span class="card-arrow">↖</span>
     </a>
 
   </div>
+
 </section>
 
-<section class="feature" id="services">
-  <div class="feature-label">THE FUTURE STARTS HERE</div>
-  <h2 data-en="A World of New Possibilities" data-fa="جهانی از فرصت‌های تازه">
-    A World of New Possibilities
-  </h2>
-  <p data-en="VEXORA is growing. Our mission is to bring discovery, useful tools and knowledge together in one place."
-     data-fa="VEXORA در حال رشد است. مأموریت ما گردآوری ابزارهای مفید، دانش و اکتشاف در یک مکان است.">
-    VEXORA is growing. Our mission is to bring discovery, useful tools and knowledge together in one place.
+<section class="vision container" id="about">
+  <div class="eyebrow">OUR VISION</div>
+  <h2 data-t="visionTitle">ساخته‌شده برای کنجکاوی</h2>
+  <p data-t="visionDesc">
+    هر کشف بزرگی با یک سؤال آغاز می‌شود.
+    VEXORA می‌خواهد راهی ساده‌تر برای رسیدن به دانش و اطلاعات فراهم کند.
   </p>
-</section>
-
-<section class="section" id="about">
-  <div class="section-heading">
-    <div class="eyebrow">OUR VISION</div>
-    <h2 data-en="Built for Curiosity" data-fa="ساخته‌شده برای کنجکاوی">
-      Built for Curiosity
-    </h2>
-    <p data-en="We believe every great discovery begins with a question."
-       data-fa="ما باور داریم هر کشف بزرگی با یک سؤال آغاز می‌شود.">
-      We believe every great discovery begins with a question.
-    </p>
-  </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="footer-logo">VEXORA</div>
+  <div class="footer-brand">VEXORA</div>
   <p>Explore Beyond Limits.</p>
+
   <div class="footer-links">
-    <a href="#home">Home</a>
-    <a href="#explore">Explore</a>
-    <a href="#about">About</a>
+    <a href="#home" data-t="home">خانه</a>
+    <a href="#explore" data-t="explore">اکتشاف</a>
+    <a href="#about" data-t="about">درباره ما</a>
   </div>
+
   <p>© <span id="year"></span> VEXORA. All rights reserved.</p>
+  <p data-t="footerNote">یک پروژه مستقل در حال توسعه</p>
 </footer>
 
 <script>
-const input = document.getElementById("searchInput");
-const form = document.getElementById("searchForm");
-const languageBtn = document.getElementById("languageBtn");
 
-let currentLanguage = "en";
+/* LANGUAGE */
 
-function quickSearch(term) {
-  input.value = term;
-  form.requestSubmit();
+let language = "fa";
+
+const translations = {
+fa: {
+ home:"خانه",
+ explore:"اکتشاف",
+ about:"درباره ما",
+ announcement:"✦ تجربه‌ای جدید از دنیای دیجیتال",
+ slogan:"فراتر از مرزها کشف کن.",
+ description:"دانش را کشف کن، در دنیای دیجیتال کاوش کن و فرصت‌های تازه‌ای بساز. سفر تو از اینجا آغاز می‌شود.",
+ search:"جست‌وجو ↗",
+ searchPlaceholder:"چه چیزی را جست‌وجو می‌کنی؟",
+ searchCaption:"پرسش خود را بنویس و دنیای اطلاعات را کشف کن.",
+ topicAI:"هوش مصنوعی",
+ topicScience:"دانشمندان",
+ topicTech:"فناوری",
+ topicSpace:"فضا",
+ resultsFor:"نتایج جست‌وجو برای:",
+ knowledgeTab:"دانشنامه",
+ webTab:"جست‌وجوی وب",
+ exploreTitle:"جهانی از امکانات را کشف کن",
+ exploreDesc:"یادگیری، فناوری، علم و اطلاعات؛ همه در یک نقطه.",
+ knowledge:"دانش و اطلاعات",
+ knowledgeDesc:"اطلاعات و موضوعات مختلف جهان را کشف کن.",
+ learning:"یادگیری",
+ learningDesc:"مهارت‌های تازه یاد بگیر و پیشرفت کن.",
+ technology:"فناوری",
+ technologyDesc:"با برنامه‌نویسی و فناوری آشنا شو.",
+ science:"علم و فضا",
+ scienceDesc:"از جهان هستی و شگفتی‌های علم بدان.",
+ developer:"ابزارهای برنامه‌نویسی",
+ developerDesc:"منابعی برای ساخت پروژه‌های جدید پیدا کن.",
+ world:"کشف جهان",
+ worldDesc:"طبیعت، فرهنگ‌ها و مکان‌های شگفت‌انگیز را بشناس.",
+ visionTitle:"ساخته‌شده برای کنجکاوی",
+ visionDesc:"هر کشف بزرگی با یک سؤال آغاز می‌شود. VEXORA می‌خواهد راهی ساده‌تر برای رسیدن به دانش و اطلاعات فراهم کند.",
+ footerNote:"یک پروژه مستقل در حال توسعه",
+ loading:"در حال جست‌وجو...",
+ empty:"نتیجه‌ای پیدا نشد. عبارت دیگری را امتحان کن.",
+ error:"ارتباط با سرویس جست‌وجو برقرار نشد. اینترنت را بررسی و دوباره تلاش کن.",
+ count:"نتایج از ویکی‌پدیا",
+ source:"منبع: ویکی‌پدیا",
+ read:"مطالعه مقاله ↗",
+ webMessage:"برای جست‌وجوی گسترده‌تر در وب از پیوند زیر استفاده کن:",
+ webButton:"جست‌وجو در DuckDuckGo ↗",
+ noResults:"نتیجه‌ای برای نمایش وجود ندارد."
+},
+en: {
+ home:"Home",
+ explore:"Explore",
+ about:"About",
+ announcement:"✦ A NEW DIGITAL EXPERIENCE",
+ slogan:"Explore Beyond Limits.",
+ description:"Discover knowledge, explore the digital world and unlock new possibilities. Your journey starts here.",
+ search:"Search ↗",
+ searchPlaceholder:"What are you looking for?",
+ searchCaption:"Ask a question and explore the world of information.",
+ topicAI:"Artificial Intelligence",
+ topicScience:"Scientists",
+ topicTech:"Technology",
+ topicSpace:"Space",
+ resultsFor:"Search results for:",
+ knowledgeTab:"Knowledge",
+ webTab:"Web Search",
+ exploreTitle:"Explore a World of Possibilities",
+ exploreDesc:"Learning, technology, science and knowledge — all in one place.",
+ knowledge:"Knowledge",
+ knowledgeDesc:"Discover information and topics from around the world.",
+ learning:"Learning",
+ learningDesc:"Learn new skills and keep improving.",
+ technology:"Technology",
+ technologyDesc:"Explore programming and digital technology.",
+ science:"Science & Space",
+ scienceDesc:"Discover the universe and the wonders of science.",
+ developer:"Developer Tools",
+ developerDesc:"Find resources to build new projects.",
+ world:"Discover the World",
+ worldDesc:"Explore nature, cultures and fascinating places.",
+ visionTitle:"Built for Curiosity",
+ visionDesc:"Every great discovery begins with a question. VEXORA aims to make knowledge easier to explore.",
+ footerNote:"An independent project in development",
+ loading:"Searching...",
+ empty:"No results found. Try another search.",
+ error:"Could not connect to the search service. Check your internet and try again.",
+ count:"results from Wikipedia",
+ source:"Source: Wikipedia",
+ read:"Read article ↗",
+ webMessage:"For broader web search, use the link below:",
+ webButton:"Search DuckDuckGo ↗",
+ noResults:"There are no results to display."
+}
+};
+
+function t(key) {
+ return translations[language][key] || key;
 }
 
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
+function setLanguage(next) {
+ language = next;
 
-  const query = input.value.trim();
-  if (!query) return;
+ document.documentElement.lang = language;
+ document.documentElement.dir = language === "fa" ? "rtl" : "ltr";
+ document.body.classList.toggle("english",language === "en");
 
-  const url = "https://duckduckgo.com/?q=" + encodeURIComponent(query);
-  window.open(url, "_blank", "noopener");
+ document.getElementById("languageBtn").textContent =
+   language === "fa" ? "FA / EN" : "EN / FA";
+
+ document.querySelectorAll("[data-t]").forEach(element => {
+   const key = element.dataset.t;
+   if (translations[language][key]) {
+     element.textContent = translations[language][key];
+   }
+ });
+
+ document.getElementById("searchInput").placeholder =
+   t("searchPlaceholder");
+
+ document.getElementById("searchSubmit");
+}
+
+document.getElementById("languageBtn").addEventListener("click",()=>{
+ setLanguage(language === "fa" ? "en" : "fa");
 });
 
-languageBtn.addEventListener("click", function() {
-  currentLanguage = currentLanguage === "en" ? "fa" : "en";
+/* SEARCH */
 
-  document.documentElement.lang = currentLanguage;
-  document.documentElement.dir = currentLanguage === "fa" ? "rtl" : "ltr";
-  document.body.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+const form = document.getElementById("searchForm");
+const input = document.getElementById("searchInput");
+const resultsSection = document.getElementById("resultsSection");
+const resultsList = document.getElementById("resultsList");
+const queryLabel = document.getElementById("queryLabel");
+const resultsSubtitle = document.getElementById("resultsSubtitle");
 
-  document.querySelectorAll("[data-en]").forEach(element => {
-    element.textContent = element.dataset[currentLanguage];
-  });
+let currentQuery = "";
+let currentController = null;
 
-  input.placeholder = currentLanguage === "fa"
-    ? "در وب جست‌وجو کن..."
-    : "Search the web...";
+function showState(message,loading=false) {
+ resultsList.innerHTML = "";
 
-  languageBtn.textContent = currentLanguage === "fa"
-    ? "EN / FA"
-    : "FA / EN";
+ const box = document.createElement("div");
+ box.className = "state-box";
+
+ if (loading) {
+   const spinner = document.createElement("div");
+   spinner.className = "loader";
+   box.appendChild(spinner);
+ }
+
+ const paragraph = document.createElement("p");
+ paragraph.textContent = message;
+ box.appendChild(paragraph);
+
+ resultsList.appendChild(box);
+}
+
+function makeResult(page) {
+ const article = document.createElement("article");
+ article.className = "result-card";
+
+ const source = document.createElement("div");
+ source.className = "result-source";
+ source.textContent = "WIKIPEDIA";
+
+ const heading = document.createElement("h3");
+ const link = document.createElement("a");
+ link.href = page.fullurl;
+ link.target = "_blank";
+ link.rel = "noopener noreferrer";
+ link.textContent = page.title;
+ heading.appendChild(link);
+
+ const description = document.createElement("p");
+ description.textContent =
+   page.extract || (language === "fa"
+     ? "برای مطالعه بیشتر این مقاله را باز کن."
+     : "Open this article to learn more.");
+
+ const open = document.createElement("a");
+ open.className = "open-link";
+ open.href = page.fullurl;
+ open.target = "_blank";
+ open.rel = "noopener noreferrer";
+ open.textContent = t("read");
+
+ article.append(source,heading,description,open);
+ return article;
+}
+
+async function search(query) {
+ query = query.trim();
+ if (!query) return;
+
+ currentQuery = query;
+
+ if (currentController) {
+   currentController.abort();
+ }
+
+ currentController = new AbortController();
+
+ resultsSection.classList.add("visible");
+ queryLabel.textContent = " " + query;
+ resultsSubtitle.textContent = t("loading");
+ showState(t("loading"),true);
+
+ document.getElementById("knowledgeTab").classList.add("active");
+ document.getElementById("webTab").classList.remove("active");
+
+ document.getElementById("explore").scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+ });
+
+ const wikiLanguage = language === "fa" ? "fa" : "en";
+
+ const api =
+  "https://" + wikiLanguage +
+  ".wikipedia.org/w/api.php?action=query" +
+  "&generator=search" +
+  "&gsrsearch=" + encodeURIComponent(query) +
+  "&gsrlimit=10" +
+  "&gsrnamespace=0" +
+  "&prop=extracts%7Cinfo" +
+  "&exintro=1" +
+  "&explaintext=1" +
+  "&inprop=url" +
+  "&format=json" +
+  "&formatversion=2" +
+  "&origin=*";
+
+ try {
+   const response = await fetch(api,{
+     signal:currentController.signal
+   });
+
+   if (!response.ok) {
+     throw new Error("Search request failed");
+   }
+
+   const data = await response.json();
+
+   if (query !== currentQuery) return;
+
+   const pages = data.query?.pages || [];
+
+   resultsList.innerHTML = "";
+
+   if (pages.length === 0) {
+     showState(t("empty"));
+     resultsSubtitle.textContent = t("noResults");
+     return;
+   }
+
+   pages.forEach(page => {
+     resultsList.appendChild(makeResult(page));
+   });
+
+   resultsSubtitle.textContent =
+     pages.length + " " + t("count");
+
+ } catch(error) {
+   if (error.name === "AbortError") return;
+
+   showState(t("error"));
+   resultsSubtitle.textContent = "";
+ }
+}
+
+form.addEventListener("submit",event=>{
+ event.preventDefault();
+ search(input.value);
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+function quickSearch(query) {
+ input.value = query;
+ search(query);
+}
+
+/* WEB SEARCH */
+
+document.getElementById("webTab").addEventListener("click",()=>{
+ if (!currentQuery) return;
+
+ document.getElementById("webTab").classList.add("active");
+ document.getElementById("knowledgeTab").classList.remove("active");
+
+ resultsList.innerHTML = "";
+
+ const box = document.createElement("div");
+ box.className = "state-box";
+
+ const paragraph = document.createElement("p");
+ paragraph.textContent = t("webMessage");
+
+ const link = document.createElement("a");
+ link.href = "https://duckduckgo.com/?q=" +
+   encodeURIComponent(currentQuery);
+ link.target = "_blank";
+ link.rel = "noopener noreferrer";
+ link.className = "open-link";
+ link.textContent = t("webButton");
+
+ box.append(paragraph,link);
+ resultsList.appendChild(box);
+});
+
+document.getElementById("knowledgeTab").addEventListener("click",()=>{
+ if (currentQuery) search(currentQuery);
+});
+
+/* INITIALIZE */
+
+document.getElementById("year").textContent =
+ new Date().getFullYear();
+
+setLanguage("fa");
+
 </script>
-
 </body>
 </html>
-# VEXORA
