@@ -1,1 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080D1B">
+<meta name="description" content="VEXORA — Explore beyond limits. Discover knowledge, technology and new possibilities.">
+<title>VEXORA — Explore Beyond Limits</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080D1B;
+  --surface: #101A2D;
+  --surface2: #14223A;
+  --blue: #438CFF;
+  --cyan: #43D9FF;
+  --white: #F4F7FF;
+  --muted: #9AAAC5;
+  --border: rgba(150,180,230,.13);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(ellipse at 50% 15%,rgba(36,105,220,.17),transparent 48%),
+    radial-gradient(ellipse at 90% 65%,rgba(28,190,255,.07),transparent 40%);
+}
+
+a { color:inherit; text-decoration:none; }
+
+button,input { font:inherit; }
+
+button { cursor:pointer; }
+
+/* NAVIGATION */
+
+.navbar {
+  height:78px;
+  max-width:1250px;
+  margin:auto;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.logo-symbol {
+  width:37px;
+  height:37px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#3D83FF,#40D8FF);
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:23px;
+  box-shadow:0 0 24px rgba(65,140,255,.35);
+}
+
+.logo span { color:#64C9FF; }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:32px;
+}
+
+.nav-links a {
+  color:var(--muted);
+  font-size:13px;
+  transition:.25s;
+}
+
+.nav-links a:hover { color:white; }
+
+.nav-actions {
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.language {
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+/* HERO */
+
+.hero {
+  min-height:650px;
+  padding:105px 20px 65px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+.announcement {
+  padding:9px 16px;
+  border:1px solid rgba(70,155,255,.25);
+  border-radius:30px;
+  background:rgba(42,115,220,.09);
+  color:#8FCBFF;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:29px;
+}
+
+.hero h1 {
+  font-size:clamp(48px,9vw,92px);
+  line-height:1.08;
+  letter-spacing:-4px;
+  font-weight:900;
+  background:linear-gradient(100deg,#FFFFFF 20%,#7BBEFF 58%,#43D9FF 90%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero h2 {
+  font-size:clamp(18px,3vw,26px);
+  margin-top:20px;
+  font-weight:500;
+  color:#C2D2EB;
+}
+
+.hero-description {
+  max-width:590px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-top:17px;
+}
+
+/* SEARCH */
+
+.search-area {
+  width:min(690px,94%);
+  margin-top:43px;
+}
+
+.search-box {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:9px;
+  border:1px solid rgba(105,165,255,.3);
+  border-radius:17px;
+  background:rgba(16,28,49,.92);
+  box-shadow:0 0 45px rgba(48,125,255,.12);
+  transition:.3s;
+}
+
+.search-box:focus-within {
+  border-color:#55A5FF;
+  box-shadow:0 0 45px rgba(48,125,255,.22);
+}
+
+.search-icon {
+  padding-left:10px;
+  color:#8CBFFF;
+  font-size:21px;
+}
+
+.search-box input {
+  flex:1;
+  min-width:0;
+  background:transparent;
+  border:0;
+  outline:0;
+  color:white;
+  font-size:14px;
+  padding:13px 0;
+}
+
+.search-box input::placeholder { color:#7185A5; }
+
+.search-button {
+  border:0;
+  color:white;
+  background:linear-gradient(120deg,#397FFF,#26BCEB);
+  border-radius:11px;
+  padding:14px 23px;
+  font-weight:700;
+  font-size:13px;
+  transition:.25s;
+}
+
+.search-button:hover {
+  transform:translateY(-2px);
+  box-shadow:0 5px 25px rgba(47,140,255,.35);
+}
+
+.search-note {
+  color:#7285A5;
+  font-size:11px;
+  margin-top:15px;
+}
+
+.quick-links {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.quick-links button {
+  color:#AABAD4;
+  background:rgba(22,38,64,.7);
+  border:1px solid var(--border);
+  padding:9px 14px;
+  border-radius:30px;
+  font-size:11px;
+  transition:.2s;
+}
+
+.quick-links button:hover {
+  color:white;
+  border-color:#468FFF;
+  background:#162A4A;
+}
+
+/* SECTIONS */
+
+.section {
+  max-width:1150px;
+  padding:70px 25px;
+  margin:auto;
+}
+
+.section-heading {
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-heading .eyebrow {
+  color:#61B9FF;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+.section-heading h2 {
+  font-size:30px;
+  margin-top:13px;
+}
+
+.section-heading p {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:12px;
+  line-height:1.8;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.card {
+  position:relative;
+  overflow:hidden;
+  padding:27px;
+  min-height:205px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:linear-gradient(145deg,rgba(21,38,65,.85),rgba(12,22,39,.9));
+  transition:.3s;
+}
+
+.card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(79,165,255,.5);
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.card-icon {
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  background:rgba(60,137,255,.13);
+  border:1px solid rgba(70,150,255,.2);
+}
+
+.card h3 {
+  font-size:17px;
+  margin-top:21px;
+}
+
+.card p {
+  font-size:12px;
+  line-height:1.9;
+  color:var(--muted);
+  margin-top:10px;
+}
+
+.card-arrow {
+  position:absolute;
+  right:24px;
+  bottom:23px;
+  color:#66B8FF;
+  font-size:19px;
+}
+
+/* FEATURE */
+
+.feature {
+  max-width:1100px;
+  margin:15px auto 85px;
+  padding:55px 30px;
+  border:1px solid rgba(80,155,255,.2);
+  border-radius:23px;
+  background:
+    radial-gradient(ellipse at 85% 50%,rgba(40,120,255,.18),transparent 48%),
+    linear-gradient(120deg,#111E35,#101A2C);
+  text-align:center;
+}
+
+.feature h2 { font-size:29px; }
+
+.feature p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2;
+  max-width:600px;
+  margin:16px auto 24px;
+}
+
+.feature-label {
+  color:#69C9FF;
+  letter-spacing:3px;
+  font-size:10px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top:1px solid var(--border);
+  padding:35px 20px;
+  text-align:center;
+}
+
+footer .footer-logo {
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+footer p {
+  color:#7185A5;
+  font-size:11px;
+  margin-top:12px;
+  line-height:2;
+}
+
+.footer-links {
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:17px;
+  flex-wrap:wrap;
+}
+
+.footer-links a {
+  color:#9AADC9;
+  font-size:11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px) {
+  .nav-links { display:none; }
+  .grid { grid-template-columns:repeat(2,1fr); }
+  .hero { padding-top:85px; }
+}
+
+@media(max-width:520px) {
+  .navbar { padding:0 17px; height:68px; }
+  .logo { font-size:20px; }
+  .logo-symbol { width:32px; height:32px; }
+  .hero { min-height:570px; padding:83px 14px 45px; }
+  .hero h1 { letter-spacing:-2px; }
+  .hero-description { font-size:12px; }
+  .search-box { gap:7px; }
+  .search-icon { padding-left:5px; }
+  .search-box input { font-size:12px; }
+  .search-button { padding:13px 13px; font-size:11px; }
+  .section { padding:50px 17px; }
+  .grid { grid-template-columns:1fr; }
+  .section-heading h2 { font-size:25px; }
+  .feature { margin:10px 15px 60px; padding:40px 20px; }
+}
+
+body[dir="rtl"] { font-family:Tahoma,Arial,sans-serif; }
+body[dir="rtl"] .card-arrow { right:auto; left:24px; }
+body[dir="rtl"] .search-icon { padding-left:0; padding-right:10px; }
+body[dir="rtl"] .search-box input { text-align:right; }
+body[dir="rtl"] .search-icon { padding-right:5px; }
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="#" class="logo">
+    <div class="logo-symbol">V</div>
+    VEXORA
+  </a>
+
+  <nav class="nav-links">
+    <a href="#home" data-en="Home" data-fa="خانه">Home</a>
+    <a href="#explore" data-en="Explore" data-fa="اکتشاف">Explore</a>
+    <a href="#services" data-en="Services" data-fa="خدمات">Services</a>
+    <a href="#about" data-en="About" data-fa="درباره ما">About</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="language" id="languageBtn">FA / EN</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+  <div class="announcement" data-en="✦ A NEW DIGITAL EXPERIENCE" data-fa="✦ تجربه‌ای جدید از دنیای دیجیتال">
+    ✦ A NEW DIGITAL EXPERIENCE
+  </div>
+
+  <h1>VEXORA</h1>
+
+  <h2 data-en="Explore Beyond Limits." data-fa="فراتر از مرزها کشف کن.">
+    Explore Beyond Limits.
+  </h2>
+
+  <p class="hero-description"
+     data-en="Discover knowledge, explore the digital world and unlock new possibilities. Your journey starts here."
+     data-fa="دانش را کشف کن، در دنیای دیجیتال کاوش کن و فرصت‌های تازه‌ای بساز. سفر تو از اینجا آغاز می‌شود.">
+    Discover knowledge, explore the digital world and unlock new possibilities. Your journey starts here.
+  </p>
+
+  <div class="search-area">
+    <form class="search-box" id="searchForm">
+      <span class="search-icon">⌕</span>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search the web..."
+        autocomplete="off"
+        required
+      >
+      <button class="search-button" type="submit"
+              data-en="Search ↗" data-fa="جست‌وجو ↗">
+        Search ↗
+      </button>
+    </form>
+
+    <p class="search-note"
+       data-en="Start exploring the world of information."
+       data-fa="جست‌وجوی خود را در دنیای اطلاعات آغاز کن.">
+      Start exploring the world of information.
+    </p>
+
+    <div class="quick-links">
+      <button onclick="quickSearch('Technology')">Technology</button>
+      <button onclick="quickSearch('Science')">Science</button>
+      <button onclick="quickSearch('Education')">Education</button>
+      <button onclick="quickSearch('Artificial Intelligence')">AI</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="section" id="explore">
+
+  <div class="section-heading">
+    <div class="eyebrow">DISCOVER MORE</div>
+    <h2 data-en="Explore the Possibilities" data-fa="فراتر از دنیای معمولی">Explore the Possibilities</h2>
+    <p data-en="A universe of knowledge and innovation, waiting for you."
+       data-fa="جهانی از دانش و نوآوری در انتظار توست.">
+      A universe of knowledge and innovation, waiting for you.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener">
+      <div class="card-icon">🌐</div>
+      <h3 data-en="Knowledge" data-fa="دانش و اطلاعات">Knowledge</h3>
+      <p data-en="Discover facts, ideas and information from around the world."
+         data-fa="واقعیت‌ها، ایده‌ها و اطلاعات جهان را کشف کن.">
+        Discover facts, ideas and information from around the world.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+    <a class="card" href="https://www.coursera.org/" target="_blank" rel="noopener">
+      <div class="card-icon">🎓</div>
+      <h3 data-en="Learning" data-fa="یادگیری">Learning</h3>
+      <p data-en="Build new skills and expand your knowledge every day."
+         data-fa="مهارت‌های تازه یاد بگیر و دانش خود را گسترش بده.">
+        Build new skills and expand your knowledge every day.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+    <a class="card" href="https://github.com/" target="_blank" rel="noopener">
+      <div class="card-icon">💻</div>
+      <h3 data-en="Technology" data-fa="فناوری">Technology</h3>
+      <p data-en="Explore programming, innovation and digital technologies."
+         data-fa="برنامه‌نویسی، نوآوری و فناوری‌های دیجیتال را کشف کن.">
+        Explore programming, innovation and digital technologies.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+    <a class="card" href="https://www.nasa.gov/" target="_blank" rel="noopener">
+      <div class="card-icon">🚀</div>
+      <h3 data-en="Science & Space" data-fa="علم و فضا">Science & Space</h3>
+      <p data-en="Explore the universe and the amazing world of science."
+         data-fa="جهان هستی و دنیای شگفت‌انگیز علم را بشناس.">
+        Explore the universe and the amazing world of science.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+    <a class="card" href="https://developer.mozilla.org/" target="_blank" rel="noopener">
+      <div class="card-icon">⚡</div>
+      <h3 data-en="Developer Tools" data-fa="ابزارهای برنامه‌نویسی">Developer Tools</h3>
+      <p data-en="Find useful resources to create and build new things."
+         data-fa="منابع مفید برای ساخت و خلق چیزهای جدید پیدا کن.">
+        Find useful resources to create and build new things.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+    <a class="card" href="https://www.nationalgeographic.com/" target="_blank" rel="noopener">
+      <div class="card-icon">🌍</div>
+      <h3 data-en="Discover the World" data-fa="کشف جهان">Discover the World</h3>
+      <p data-en="Explore nature, cultures and fascinating places."
+         data-fa="طبیعت، فرهنگ‌ها و مکان‌های شگفت‌انگیز را بشناس.">
+        Explore nature, cultures and fascinating places.
+      </p>
+      <span class="card-arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="feature" id="services">
+  <div class="feature-label">THE FUTURE STARTS HERE</div>
+  <h2 data-en="A World of New Possibilities" data-fa="جهانی از فرصت‌های تازه">
+    A World of New Possibilities
+  </h2>
+  <p data-en="VEXORA is growing. Our mission is to bring discovery, useful tools and knowledge together in one place."
+     data-fa="VEXORA در حال رشد است. مأموریت ما گردآوری ابزارهای مفید، دانش و اکتشاف در یک مکان است.">
+    VEXORA is growing. Our mission is to bring discovery, useful tools and knowledge together in one place.
+  </p>
+</section>
+
+<section class="section" id="about">
+  <div class="section-heading">
+    <div class="eyebrow">OUR VISION</div>
+    <h2 data-en="Built for Curiosity" data-fa="ساخته‌شده برای کنجکاوی">
+      Built for Curiosity
+    </h2>
+    <p data-en="We believe every great discovery begins with a question."
+       data-fa="ما باور داریم هر کشف بزرگی با یک سؤال آغاز می‌شود.">
+      We believe every great discovery begins with a question.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">VEXORA</div>
+  <p>Explore Beyond Limits.</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#about">About</a>
+  </div>
+  <p>© <span id="year"></span> VEXORA. All rights reserved.</p>
+</footer>
+
+<script>
+const input = document.getElementById("searchInput");
+const form = document.getElementById("searchForm");
+const languageBtn = document.getElementById("languageBtn");
+
+let currentLanguage = "en";
+
+function quickSearch(term) {
+  input.value = term;
+  form.requestSubmit();
+}
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const query = input.value.trim();
+  if (!query) return;
+
+  const url = "https://duckduckgo.com/?q=" + encodeURIComponent(query);
+  window.open(url, "_blank", "noopener");
+});
+
+languageBtn.addEventListener("click", function() {
+  currentLanguage = currentLanguage === "en" ? "fa" : "en";
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+  document.body.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-en]").forEach(element => {
+    element.textContent = element.dataset[currentLanguage];
+  });
+
+  input.placeholder = currentLanguage === "fa"
+    ? "در وب جست‌وجو کن..."
+    : "Search the web...";
+
+  languageBtn.textContent = currentLanguage === "fa"
+    ? "EN / FA"
+    : "FA / EN";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 # VEXORA
